@@ -13,6 +13,7 @@
     "group:allNonMajor",
     ":pinAllExceptPeerDependencies"
   ],
+  "timezone": "Europe/Rome",
   "configMigration": true,
   "osvVulnerabilityAlerts": true,
   "postUpdateOptions": [
