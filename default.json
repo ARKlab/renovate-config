@@ -11,7 +11,7 @@
     ":automergePr",
     ":combinePatchMinorReleases",
     "group:allNonMajor",
-    ":pinAllExceptPeerDependencies"
+    ":pinDevDependencies"
   ],
   "timezone": "Europe/Rome",
   "configMigration": true,
