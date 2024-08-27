@@ -3,13 +3,13 @@
   "extends": [
     "config:recommended",
     ":prImmediately",
-    ":prImmediately",
     ":semanticCommits",
     ":semanticPrefixChore",
     ":separateMultipleMajorReleases",
     "npm:unpublishSafe",
     ":automergeMinor",
     ":automergePr",
+    ":combinePatchMinorReleases",
     "group:allNonMajor",
     ":pinAllExceptPeerDependencies"
   ],
@@ -25,6 +25,9 @@
       "description": "Ark Tools group",
       "matchPackageNames": [
         "/^Ark\\.Tools/"
+      ],
+      "matchManagers": [ 
+        "nuget" 
       ]
     },
     {
@@ -36,7 +39,7 @@
       "allowedVersions": "/^(6|8|10|12)\\.[0-9]+\\.[0-9]+$/"
     },
     {
-      "managers": [ 
+      "matchManagers": [ 
         "nuget" 
       ],
       "matchPackageNames": "EPPlus",
