@@ -1,0 +1,16 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "extends": [
+        "monorepo:dotnet",
+        "monorepo:aspnet extensions",
+        "monorepo:aspnet-api-versioning",
+        "monorepo:dotnet-azure-ad-identitymodel-extensions",
+        "monorepo:dotnet-wcf",
+        "monorepo:aspnet-health-checks"
+      ],
+      "allowedVersions": "/^(6|8|10|12)\\.[0-9]+\\.[0-9]+$/"
+    }
+  ]
+}
