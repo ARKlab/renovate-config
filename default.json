@@ -11,6 +11,8 @@
     ":automergePr",
     ":combinePatchMinorReleases",
     ":pinDevDependencies",
+    "github>ARKlab/renovate-config:dotnet-lts-only",
+    "github>ARKlab/renovate-config:groups",
     "group:allNonMajor",
   ],
   "timezone": "Europe/Rome",
@@ -20,27 +22,6 @@
     "npmDedupe"
   ],
   "packageRules": [
-    {
-      "groupName": "Ark.Tools",
-      "description": "Ark Tools group",
-      "matchPackageNames": [
-        "/^Ark\\.Tools/"
-      ],
-      "matchManagers": [ 
-        "nuget" 
-      ]
-    },
-    {
-      "extends": [
-        "monorepo:dotnet",
-        "monorepo:aspnet extensions",
-        "monorepo:aspnet-api-versioning",
-        "monorepo:dotnet-azure-ad-identitymodel-extensions",
-        "monorepo:dotnet-wcf",
-        "monorepo:aspnet-health-checks"
-      ],
-      "allowedVersions": "/^(6|8|10|12)\\.[0-9]+\\.[0-9]+$/"
-    },
     {
       "matchManagers": [ 
         "nuget" 
