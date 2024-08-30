@@ -1,0 +1,15 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "groupName": "Ark.Tools",
+      "description": "Ark Tools group",
+      "matchPackageNames": [
+        "/^Ark\\.Tools/"
+      ],
+      "matchManagers": [ 
+        "nuget" 
+      ]
+    }
+  ]
+}
