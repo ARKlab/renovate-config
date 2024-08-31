@@ -13,7 +13,7 @@
     ":pinDevDependencies",
     "github>ARKlab/renovate-config:dotnet-lts-only",
     "github>ARKlab/renovate-config:groups",
-    "group:allNonMajor",
+    "group:allNonMajor"
   ],
   "timezone": "Europe/Rome",
   "configMigration": true,
