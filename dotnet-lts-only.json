@@ -10,7 +10,7 @@
         "monorepo:dotnet-wcf",
         "monorepo:aspnet-health-checks"
       ],
-      "allowedVersions": "/^(6|8|10|12)\\.[0-9]+\\.[0-9]+$/"
+      "allowedVersions": "/^(6|8|10|12)/"
     }
   ]
 }
