@@ -4,7 +4,7 @@
     "config:recommended",
     ":prImmediately",
     ":semanticCommits",
-    ":semanticPrefixChore",
+    ":semanticPrefixFixDepsChoreOthers",
     ":separateMultipleMajorReleases",
     "npm:unpublishSafe",
     ":automergeMinor",
@@ -28,6 +28,14 @@
       ],
       "matchPackageNames": "EPPlus",
       "allowedVersions": "/^[0-4]\\.[0-9]+\\.[0-9]+(\\.[0-9]+)?$/"
+    },
+    {
+      "matchDepTypes": [
+        "dependencies",
+        "require"
+      ],
+      "matchUpdateTypes": ["major"],
+      "semanticCommitType": "feat"
     }
   ]
 }
