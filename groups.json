@@ -4,11 +4,15 @@
     {
       "groupName": "Ark.Tools",
       "description": "Ark Tools group",
-      "matchPackageNames": [
-        "/^Ark\\.Tools/"
-      ],
-      "matchManagers": [ 
-        "nuget" 
+      "matchSourceUrls": [
+        "https://github.com/ARKlab/Ark.Tools"
+      ]
+    },
+    {
+      "groupName": "Reqnroll",
+      "description": "Reqnroll group",
+      "matchSourceUrls": [
+        "https://github.com/reqnroll/Reqnroll"
       ]
     }
   ]
