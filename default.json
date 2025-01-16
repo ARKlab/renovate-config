@@ -12,6 +12,7 @@
     ":combinePatchMinorReleases",
     ":pinDevDependencies",
     "github>ARKlab/renovate-config:dotnet-lts-only",
+    "github>ARKlab/renovate-config:disallowed-licenses",
     "github>ARKlab/renovate-config:groups",
     "group:allNonMajor"
   ],
@@ -22,13 +23,6 @@
     "npmDedupe"
   ],
   "packageRules": [
-    {
-      "matchManagers": [ 
-        "nuget" 
-      ],
-      "matchPackageNames": "EPPlus",
-      "allowedVersions": "/^[0-4]\\.[0-9]+\\.[0-9]+(\\.[0-9]+)?$/"
-    },
     {
       "matchDepTypes": [
         "dependencies",

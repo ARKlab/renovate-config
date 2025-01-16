@@ -10,15 +10,15 @@
         "monorepo:dotnet-wcf",
         "monorepo:aspnet-health-checks"
       ],
-      "allowedVersions": "/^(6|8|10|12)/"
+      "allowedVersions": "/^(6|8|10|12)\\./"
     },
     {
       "matchPackageNames": ["mcr.microsoft.com/devcontainers/dotnet"],
-      "allowedVersions": "/^(6|8|10|12)/"
+      "allowedVersions": "/^(6|8|10|12)\\./"
     },
     {
       "matchSourceUrls": ["https://github.com/dotnet/roslyn-analyzers"],
-      "allowedVersions": "/^(6|8|10|12)/"
+      "allowedVersions": "/^(6|8|10|12)\\./"
     }
   ]
 }
