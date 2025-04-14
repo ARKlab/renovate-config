@@ -14,6 +14,13 @@
       "matchSourceUrls": [
         "https://github.com/reqnroll/Reqnroll"
       ]
+    },
+    {
+      "groupName": "VitePWA",
+      "description": "Vite PWA group",
+      "matchSourceUrls": [
+        "https://github.com/vite-pwa/**"
+      ]
     }
   ]
 }
