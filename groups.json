@@ -21,6 +21,13 @@
       "matchSourceUrls": [
         "https://github.com/vite-pwa/**"
       ]
-    }
+    },
+    {
+      "groupName": "NLog",
+      "description": "NLog group",
+      "matchSourceUrls": [
+        "https://github.com/NLog/NLog"
+      ]
+    },
   ]
 }
