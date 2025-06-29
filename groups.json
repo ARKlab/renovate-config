@@ -28,6 +28,6 @@
       "matchSourceUrls": [
         "https://github.com/NLog/NLog"
       ]
-    },
+    }
   ]
 }
