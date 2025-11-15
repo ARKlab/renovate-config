@@ -14,6 +14,7 @@
     "github>ARKlab/renovate-config:dotnet-lts-only",
     "github>ARKlab/renovate-config:disallowed-licenses",
     "github>ARKlab/renovate-config:groups",
+    "github>ARKlab/renovate-config:sdk-based-sqlproj",
     "group:allNonMajor"
   ],
   "timezone": "Europe/Rome",
