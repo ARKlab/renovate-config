@@ -1,0 +1,62 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    
+    {
+      "matchManagers": [ 
+        "nuget" 
+      ],
+      "matchPackageNames": ["FluentAssertions"],
+      "replacementName": "AwesomeAssertions",
+      "replacementVersion": "8.2.0"
+    },
+    {
+      "matchManagers": [ 
+        "nuget" 
+      ],
+      "matchPackageNames": ["FluentAssertions.Web"],
+      "replacementName": "AwesomeAssertions.Web",
+      "replacementVersion": "1.9.6"
+    },
+    {
+      "matchManagers": [ 
+        "nuget" 
+      ],
+      "matchPackageNames": ["Ark.Tools.Specflow"],
+      "replacementName": "Ark.Tools.Reqnroll",
+      "replacementVersion": "5.6.0"
+    },
+    {
+      "matchManagers": [ 
+        "nuget" 
+      ],
+      "matchPackageNames": ["Specflow"],
+      "replacementName": "Reqnroll",
+      "replacementVersion": "3.2.1"
+    },
+    {
+      "matchManagers": [ 
+        "nuget" 
+      ],
+      "matchPackageNames": ["SpecFlow.MsTest"],
+      "replacementName": "Reqnroll.MsTest",
+      "replacementVersion": "3.2.1"
+    },
+    {
+      "matchManagers": [ 
+        "nuget" 
+      ],
+      "matchPackageNames": ["SpecFlow.Tools.MsBuild.Generation"],
+      "replacementName": "Reqnroll.Tools.MsBuild.Generation",
+      "replacementVersion": "3.2.1"
+    },
+    {
+      "matchManagers": [ 
+        "nuget" 
+      ],
+      "matchPackageNames": ["SpecFlow.Assist.Dynamic"],
+      "replacementName": "Reqnroll.Assist.Dynamic",
+      "replacementVersion": "3.2.1"
+    }
+  ]
+}
