@@ -2,15 +2,27 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended",
+    "abandonments:recommended",
+    ":docker",
+    ":configMigration",
+    "customManagers:biomeVersions",
+    "customManagers:githubActionsVersions",
+    "customManagers:azurePipelinesVersions",
+
+    "npm:unpublishSafe",
+    "security:minimumReleaseAgeNpm",
+    "security:openssf-scorecard",
+    ":enableVulnerabilityAlerts",
+    
     ":prImmediately",
     ":semanticCommits",
     ":semanticPrefixFixDepsChoreOthers",
     ":separateMultipleMajorReleases",
-    "npm:unpublishSafe",
     ":automergeMinor",
     ":automergePr",
     ":combinePatchMinorReleases",
     ":pinDevDependencies",
+    
     "github>ARKlab/renovate-config:dotnet-lts-only",
     "github>ARKlab/renovate-config:disallowed-licenses",
     "github>ARKlab/renovate-config:groups",
@@ -19,7 +31,6 @@
     "group:allNonMajor"
   ],
   "timezone": "Europe/Rome",
-  "configMigration": true,
   "osvVulnerabilityAlerts": true,
   "postUpdateOptions": [
     "npmDedupe"
