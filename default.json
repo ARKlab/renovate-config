@@ -43,6 +43,10 @@
       ],
       "matchUpdateTypes": ["major"],
       "semanticCommitType": "feat"
-    }
+    },
+    { 
+       "matchPackageNames": ["@typescript/native-preview"], 
+       "followTag": "beta" 
+     }
   ]
 }
