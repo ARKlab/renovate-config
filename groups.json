@@ -28,6 +28,13 @@
       "matchSourceUrls": [
         "https://github.com/NLog/NLog"
       ]
+    },
+    {
+      "groupName": "Asp.Versioning",
+      "description": "Asp.Versioning group",
+      "matchSourceUrls": [
+        "https://github.com/dotnet/aspnet-api-versioning"
+      ]
     }
   ]
 }
