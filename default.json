@@ -13,7 +13,6 @@
     "security:minimumReleaseAgeNpm",
     "security:openssf-scorecard",
     ":enableVulnerabilityAlerts",
-    ":maintainLockFilesWeekly",
     
     ":prImmediately",
     ":semanticCommits",
