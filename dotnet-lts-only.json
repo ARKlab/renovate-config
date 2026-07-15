@@ -19,6 +19,11 @@
     {
       "matchSourceUrls": ["https://github.com/dotnet/roslyn-analyzers"],
       "allowedVersions": "/^(6|8|10|12)\\./"
+    },
+    {
+      "matchPackageNames": ["Microsoft.OpenApi"],
+      "matchDatasources": ["nuget"],
+      "allowedVersions": "<3.0.0"
     }
   ]
 }
