@@ -33,7 +33,9 @@
   "timezone": "Europe/Rome",
   "osvVulnerabilityAlerts": true,
   "postUpdateOptions": [
-    "npmDedupe"
+    "npmDedupe",
+    "dotnetWorkloadRestore",
+    "pnpmDedupe",
   ],
   "lockFileMaintenance": {
     "enabled": true,
