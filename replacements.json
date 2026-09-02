@@ -57,6 +57,17 @@
       "matchPackageNames": ["SpecFlow.Assist.Dynamic"],
       "replacementName": "Reqnroll.Assist.Dynamic",
       "replacementVersion": "3.2.1"
+    },
+    {
+      "matchManagers": [
+        "nuget"
+      ],
+      "matchPackageNames": ["NPOI"],
+      "replacementName": "ClosedXML",
+      "replacementVersion": "0.105.1",
+      "prBodyNotes": [
+        "NPOI 2.8.0 introduced an EULA and a mandatory maintenance fee for organizations. Staying on the unmaintained NPOI 2.7.x is not a long-term option. Migrate to ClosedXML 0.105.1, an open-source MIT-licensed XLSX library. API compatibility with the existing code must be verified."
+      ]
     }
   ]
 }
