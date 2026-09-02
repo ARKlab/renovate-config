@@ -57,6 +57,14 @@
       "matchPackageNames": ["SpecFlow.Assist.Dynamic"],
       "replacementName": "Reqnroll.Assist.Dynamic",
       "replacementVersion": "3.2.1"
+    },
+    {
+      "matchManagers": [
+        "nuget"
+      ],
+      "matchPackageNames": ["NPOI"],
+      "replacementName": "NPOI",
+      "replacementVersion": "2.7.6"
     }
   ]
 }

@@ -14,6 +14,13 @@
             ],
             "matchPackageNames": [ "FluentAssertions" ],
             "allowedVersions": "/^[0-7]\\./"
+        },
+        {
+            "matchManagers": [ 
+              "nuget" 
+            ],
+            "matchPackageNames": [ "NPOI" ],
+            "allowedVersions": "/^([01]\\.[0-9]+\\.[0-9]+|2\\.[0-7]\\.[0-9]+)(\\.[0-9]+)?$/"
         }
     ]
   }
