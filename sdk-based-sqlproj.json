@@ -4,9 +4,10 @@
     {
       "customType": "regex",
       "managerFilePatterns": [
-        "/.sqlproj$/"
+        "/\\.(csproj|props|targets|sqlproj)$/"
       ],
       "matchStrings": [
+        "<Project\\s+Sdk=\"(?<depName>[^/\"]+)/(?<currentValue>[^\"]+)\"\\s*>",
         "<Sdk\\s+Name=\"(?<depName>.*?)\"\\s+Version=\"(?<currentValue>.*?)\"\\s*/>"
       ],
       "datasourceTemplate": "nuget",
