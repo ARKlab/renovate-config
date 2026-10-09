@@ -9,7 +9,6 @@
     "customManagers:githubActionsVersions",
     "customManagers:azurePipelinesVersions",
 
-    "npm:unpublishSafe",
     "security:minimumReleaseAgeNpm",
     "security:openssf-scorecard",
     ":enableVulnerabilityAlerts",
