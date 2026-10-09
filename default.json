@@ -9,7 +9,6 @@
     "customManagers:githubActionsVersions",
     "customManagers:azurePipelinesVersions",
 
-    "npm:unpublishSafe",
     "security:minimumReleaseAgeNpm",
     "security:openssf-scorecard",
     ":enableVulnerabilityAlerts",
@@ -34,7 +33,6 @@
   "osvVulnerabilityAlerts": true,
   "postUpdateOptions": [
     "npmDedupe",
-    "dotnetWorkloadRestore",
     "pnpmDedupe",
   ],
   "lockFileMaintenance": {
