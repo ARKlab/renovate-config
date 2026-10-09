@@ -34,7 +34,6 @@
   "osvVulnerabilityAlerts": true,
   "postUpdateOptions": [
     "npmDedupe",
-    "dotnetWorkloadRestore",
     "pnpmDedupe",
   ],
   "lockFileMaintenance": {
