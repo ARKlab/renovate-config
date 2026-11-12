@@ -11,6 +11,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - NuGet updates to Swashbuckle.AspNetCore 11 are no longer proposed: it needs Microsoft.OpenApi 3, which does not work with ASP.NET Core 10. The cap goes away together with the Microsoft.OpenApi one.
 - NuGet updates to MailKit 5 and MimeKit 5 are no longer proposed until NLog.MailKit supports them: with NLog.MailKit 6 the mail target fails at run time. A repository that does not use NLog.MailKit can lift the cap with an `allowedVersions` rule for these packages in its own `packageRules`.
 
+### Fixed
+
+- `default.json` is strict JSON again (a trailing comma is removed), so Renovate no longer needs its JSON5 fallback, which logs a warning and is planned for removal.
+
 ## [1.0.0] - 2026-10-09
 
 ### Removed

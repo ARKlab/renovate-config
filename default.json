@@ -33,7 +33,7 @@
   "osvVulnerabilityAlerts": true,
   "postUpdateOptions": [
     "npmDedupe",
-    "pnpmDedupe",
+    "pnpmDedupe"
   ],
   "lockFileMaintenance": {
     "enabled": true,
@@ -53,7 +53,7 @@
        "followTag": "beta" 
      },
     {
-      "description": "Temporary cap: MailKit 5 ships MimeKit.Core in place of MimeKit.dll, which NLog.MailKit 6 still loads, so the mail target fails at run time. Remove once NLog.MailKit supports MailKit 5",
+      "description": "Temporary cap: MailKit 5 ships MimeKit.Core in place of MimeKit.dll, which NLog.MailKit 6 still loads, so the mail target fails at run time. Remove once NLog.MailKit supports MailKit 5: https://github.com/ARKlab/renovate-config/issues/10",
       "matchPackageNames": ["MailKit", "MimeKit"],
       "matchDatasources": ["nuget"],
       "allowedVersions": "<5.0.0"
