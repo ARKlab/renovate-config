@@ -33,7 +33,7 @@
   "osvVulnerabilityAlerts": true,
   "postUpdateOptions": [
     "npmDedupe",
-    "pnpmDedupe",
+    "pnpmDedupe"
   ],
   "lockFileMaintenance": {
     "enabled": true,
