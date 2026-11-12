@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-11-12
+
 ### Changed
 
 - NuGet updates to Swashbuckle.AspNetCore 11 are no longer proposed: it needs Microsoft.OpenApi 3, which does not work with ASP.NET Core 10. The cap goes away together with the Microsoft.OpenApi one.
@@ -21,5 +23,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - `dotnetWorkloadRestore` is no longer enabled by default, so NuGet lock file updates no longer run a slow `dotnet workload restore`. Repositories that need SDK workloads can add it back to `postUpdateOptions` in their own config.
 
-[Unreleased]: https://github.com/ARKlab/renovate-config/compare/1.0.0...HEAD
-[1.0.0]: https://github.com/ARKlab/renovate-config/releases/tag/1.0.0
+[Unreleased]: https://github.com/ARKlab/renovate-config/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/ARKlab/renovate-config/compare/v1.0.0...v1.1.0
+[1.0.0]: https://github.com/ARKlab/renovate-config/releases/tag/v1.0.0
