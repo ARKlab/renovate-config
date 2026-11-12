@@ -24,6 +24,12 @@
       "matchPackageNames": ["Microsoft.OpenApi"],
       "matchDatasources": ["nuget"],
       "allowedVersions": "<3.0.0"
+    },
+    {
+      "description": "Swashbuckle.AspNetCore 11 needs Microsoft.OpenApi 3, which does not work with Microsoft.AspNetCore.OpenApi 10. Remove together with the Microsoft.OpenApi cap",
+      "matchSourceUrls": ["https://github.com/domaindrivendev/Swashbuckle.AspNetCore"],
+      "matchDatasources": ["nuget"],
+      "allowedVersions": "<11.0.0"
     }
   ]
 }
