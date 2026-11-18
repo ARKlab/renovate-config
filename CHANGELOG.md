@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Added
+
+- Updates of the APM CLI (`microsoft/apm` GitHub releases) come in one "apm CLI" PR, so `constraints.apm`, the CLI pins in workflows and the `apm_version` of `apm.lock.yaml` move together.
+
 ### Changed
 
 - Renovate now waits until a release is 3 days old before proposing it, for every package source, not only npm, and creates no branch before then. Releases without a release date (Docker images outside Docker Hub, Azure Pipelines tasks, git tags, digests of a branch) are not delayed. For npm, pnpm, yarn, cargo and poetry the package manager also applies the 3 days to lock file maintenance and to indirect dependencies, except on branches that also replace, pin or bump a package; where the package manager cannot enforce it, lock file maintenance is not delayed and its PR says so. A private feed that returns no release dates holds its updates until it does: check the Dependency Dashboard for updates pending on the release age. Security updates still come at once.
