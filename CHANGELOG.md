@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Changed
 
-- Renovate now waits until a release is 3 days old before proposing it for every package source that reports release dates (NuGet, GitHub releases and tags, PyPI, Maven and more), not only npm, and creates no branch before then. For npm, pnpm, yarn and cargo the package manager also applies the 3 days to lock file maintenance and to indirect dependencies; lock file maintenance stays pending with npm older than 11.10, pnpm older than 10.17 or yarn older than 4.10. Docker images and sources without release dates are not delayed. Security updates still come at once.
+- Renovate now waits until a release is 3 days old before proposing it, for every package source, not only npm, and creates no branch before then. Releases without a release date (Docker images outside Docker Hub, Azure Pipelines tasks, git tags) are not delayed. For npm, pnpm, yarn and cargo the package manager also applies the 3 days to lock file maintenance and to indirect dependencies; lock file maintenance stays pending with npm older than 11.10, pnpm older than 10.17 or yarn older than 4.10. Security updates still come at once.
 - NuGet updates to Swashbuckle.AspNetCore 11 are no longer proposed: it needs Microsoft.OpenApi 3, which does not work with ASP.NET Core 10. The cap goes away together with the Microsoft.OpenApi one.
 - NuGet updates to MailKit 5 and MimeKit 5 are no longer proposed until NLog.MailKit supports them: with NLog.MailKit 6 the mail target fails at run time. A repository that does not use NLog.MailKit can lift the cap with an `allowedVersions` rule for these packages in its own `packageRules`.
 
