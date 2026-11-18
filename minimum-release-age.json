@@ -1,0 +1,141 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Wait until a release is 3 days old before raising its update. Malware scanners and registries get time to find and pull a bad release, and Renovate creates no branch and runs no package manager on it before then (internalChecksFilter defaults to strict). Security updates skip the wait: vulnerabilityAlerts sets minimumReleaseAge to null. npm (npm, pnpm, yarn), cargo and poetry also get the age passed to the package manager, so lock file maintenance and indirect dependencies wait 3 days too (minimumReleaseAgePackageManagerSync, experimental in Renovate 44). Where the package manager version or setup cannot enforce it, lock file maintenance runs without the wait and its PR warns.",
+  "minimumReleaseAge": "3 days",
+  "npm": {
+    "minimumReleaseAgePackageManagerSync": true
+  },
+  "cargo": {
+    "minimumReleaseAgePackageManagerSync": true
+  },
+  "poetry": {
+    "minimumReleaseAgePackageManagerSync": true
+  },
+  "packageRules": [
+    {
+      "description": "Every datasource except those that Renovate 44 marks with releaseTimestampSupport, plus docker, which has timestamps only on Docker Hub: hold a release that has a timestamp, let one without a timestamp through (it would otherwise wait forever, e.g. images from mcr.microsoft.com, ghcr.io or ACR, Azure Pipelines tasks, git tags). Datasources that support timestamps keep the default timestamp-required, so a feed that drops them blocks rather than skips the wait.",
+      "matchDatasources": [
+        "!apk",
+        "!artifactory",
+        "!aws-machine-image",
+        "!bitbucket-tags",
+        "!bitrise",
+        "!buildpacks-registry",
+        "!clojure",
+        "!conda",
+        "!cpan",
+        "!crate",
+        "!dart",
+        "!deno",
+        "!devbox",
+        "!dotnet-version",
+        "!elm-package",
+        "!endoflife-date",
+        "!flutter-version",
+        "!forgejo-releases",
+        "!forgejo-tags",
+        "!galaxy",
+        "!galaxy-collection",
+        "!gitea-releases",
+        "!gitea-tags",
+        "!github-digest",
+        "!github-release-attachments",
+        "!github-releases",
+        "!github-runners",
+        "!github-tags",
+        "!gitlab-packages",
+        "!gitlab-releases",
+        "!gitlab-tags",
+        "!go",
+        "!golang-version",
+        "!gradle-version",
+        "!helm",
+        "!hex",
+        "!hexpm-bob",
+        "!jenkins-plugins",
+        "!jsr",
+        "!julia-general-metadata",
+        "!maven",
+        "!node-version",
+        "!npm",
+        "!nuget",
+        "!orb",
+        "!packagist",
+        "!puppet-forge",
+        "!pypi",
+        "!ruby-version",
+        "!rubygems",
+        "!rust-version",
+        "!sbt-package",
+        "!terraform-module",
+        "!terraform-provider",
+        "!unity3d"
+      ],
+      "minimumReleaseAgeBehaviour": "timestamp-optional"
+    },
+    {
+      "description": "Digest updates never carry a release timestamp at branch time, so timestamp-required would leave their status check pending forever. The lookup still holds a digest until the version it points to is 3 days old",
+      "matchUpdateTypes": [
+        "digest",
+        "pinDigest"
+      ],
+      "minimumReleaseAgeBehaviour": "timestamp-optional",
+      "prBodyNotes": [
+        "⚠️ Renovate checks the 3-day minimum release age of a digest only against the version it points to. A digest of a branch or a moved tag without a version is not checked: check that its commit is at least 3 days old."
+      ]
+    },
+    {
+      "description": "Lock file maintenance has no release timestamp and the package manager picks the versions. Only npm, cargo and poetry enforce the age themselves, so the other managers skip it",
+      "matchManagers": [
+        "!npm",
+        "!cargo",
+        "!poetry"
+      ],
+      "matchUpdateTypes": [
+        "lockFileMaintenance"
+      ],
+      "minimumReleaseAge": null,
+      "prBodyNotes": [
+        "⚠️ Lock file maintenance does not check the 3-day minimum release age: the package manager picks the versions. Check that no version in this PR is younger than 3 days."
+      ]
+    },
+    {
+      "description": "npm, cargo and poetry lock file maintenance keeps the 3 days and hands them to the package manager (minimumReleaseAgePackageManagerSync). It has no release timestamp, so timestamp-optional keeps it from staying pending where the package manager cannot enforce the age",
+      "matchManagers": [
+        "npm",
+        "cargo",
+        "poetry"
+      ],
+      "matchUpdateTypes": [
+        "lockFileMaintenance"
+      ],
+      "minimumReleaseAgeBehaviour": "timestamp-optional",
+      "prBodyNotes": [
+        "⚠️ Renovate passes the 3-day minimum release age to the package manager for lock file maintenance, but not every package manager version or setup enforces it. Unless you know it does here, check that no version in this PR is younger than 3 days."
+      ]
+    },
+    {
+      "description": "Replacements and pinning do not carry the release age (renovatebot/renovate#39400, #40288)",
+      "matchUpdateTypes": [
+        "replacement",
+        "pin"
+      ],
+      "minimumReleaseAge": null,
+      "prBodyNotes": [
+        "⚠️ Renovate does not check the 3-day minimum release age for replacements and pinning. Check that no version in this PR is younger than 3 days."
+      ]
+    },
+    {
+      "description": "bump, lockfileUpdate and rollback updates have no release timestamp",
+      "matchUpdateTypes": [
+        "bump",
+        "lockfileUpdate",
+        "rollback"
+      ],
+      "minimumReleaseAge": null,
+      "prBodyNotes": [
+        "⚠️ Renovate does not check the 3-day minimum release age for `bump`, `lockfileUpdate` and `rollback` updates. Check that no version in this PR is younger than 3 days."
+      ]
+    }
+  ]
+}
