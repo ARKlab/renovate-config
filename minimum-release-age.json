@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Wait until a release is 3 days old before raising its update. Malware scanners and registries get time to find and pull a bad release, and Renovate creates no branch and runs no package manager on it before then (internalChecksFilter defaults to strict). Security updates skip the wait: vulnerabilityAlerts sets minimumReleaseAge to null. npm (npm, pnpm, yarn), cargo and poetry also get the age passed to the package manager, so lock file maintenance and indirect dependencies wait 3 days too (minimumReleaseAgePackageManagerSync, experimental in Renovate 44; older npm, pnpm and yarn versions leave lock file maintenance pending).",
+  "description": "Wait until a release is 3 days old before raising its update. Malware scanners and registries get time to find and pull a bad release, and Renovate creates no branch and runs no package manager on it before then (internalChecksFilter defaults to strict). Security updates skip the wait: vulnerabilityAlerts sets minimumReleaseAge to null. npm (npm, pnpm, yarn), cargo and poetry also get the age passed to the package manager, so lock file maintenance and indirect dependencies wait 3 days too (minimumReleaseAgePackageManagerSync, experimental in Renovate 44). Where the package manager version or setup cannot enforce it, lock file maintenance runs without the wait and its PR warns.",
   "minimumReleaseAge": "3 days",
   "npm": {
     "minimumReleaseAgePackageManagerSync": true
