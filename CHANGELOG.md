@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
-- Updates of the APM CLI (`microsoft/apm` GitHub releases) come in one "apm CLI" PR, so `constraints.apm`, the CLI pins in workflows and the `apm_version` of `apm.lock.yaml` move together.
+- Major updates of the APM CLI (`microsoft/apm` GitHub releases) come in one "apm CLI" PR, so `constraints.apm`, the CLI pins in workflows and the `apm_version` of `apm.lock.yaml` move together. Minor and patch updates go with the other non-major updates, as for the other groups.
 
 ### Changed
 
