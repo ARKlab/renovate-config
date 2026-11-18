@@ -1,0 +1,32 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Wait until a release is 3 days old before raising its update, for every datasource. Malware scanners and registries get time to find and pull a bad release, and Renovate does not create a branch or run a package manager (artifact updates) on it before then. Security updates skip the wait: vulnerabilityAlerts sets minimumReleaseAge to null.",
+  "minimumReleaseAge": "3 days",
+  "internalChecksFilter": "strict",
+  "packageRules": [
+    {
+      "description": "Lock file maintenance has no release timestamp: the package manager picks the versions",
+      "matchUpdateTypes": [
+        "lockFileMaintenance"
+      ],
+      "minimumReleaseAge": null
+    },
+    {
+      "description": "Replacements and pinning do not carry the release age (renovatebot/renovate#39400, #40288)",
+      "matchUpdateTypes": [
+        "replacement",
+        "pin"
+      ],
+      "minimumReleaseAge": null
+    },
+    {
+      "description": "bump, lockfileUpdate and rollback updates have no release timestamp",
+      "matchUpdateTypes": [
+        "bump",
+        "lockfileUpdate",
+        "rollback"
+      ],
+      "minimumReleaseAge": null
+    }
+  ]
+}

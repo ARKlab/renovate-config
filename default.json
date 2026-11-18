@@ -10,6 +10,7 @@
     "customManagers:azurePipelinesVersions",
 
     "security:minimumReleaseAgeNpm",
+    "github>ARKlab/renovate-config:minimum-release-age",
     "security:openssf-scorecard",
     ":enableVulnerabilityAlerts",
     
