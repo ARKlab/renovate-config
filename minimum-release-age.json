@@ -1,15 +1,70 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Wait until a release is 3 days old before raising its update, for every datasource. Malware scanners and registries get time to find and pull a bad release, and Renovate does not create a branch or run a package manager (artifact updates) on it before then. Security updates skip the wait: vulnerabilityAlerts sets minimumReleaseAge to null.",
-  "minimumReleaseAge": "3 days",
-  "internalChecksFilter": "strict",
+  "description": "Wait until a release is 3 days old before raising its update, for every datasource that reports release timestamps. Malware scanners and registries get time to find and pull a bad release, and Renovate creates no branch and runs no package manager on it before then (internalChecksFilter defaults to strict). Security updates skip the wait: vulnerabilityAlerts sets minimumReleaseAge to null.",
   "packageRules": [
+    {
+      "description": "Datasources with release timestamps (releaseTimestampSupport in Renovate 44). docker is left out: it has timestamps only on Docker Hub, and the default minimumReleaseAgeBehaviour (timestamp-required) would hold images from mcr.microsoft.com, ghcr.io or ACR forever. Datasources without timestamps (git-tags, git-refs, azure-pipelines-tasks, azure-bicep-resource, ...) are left out for the same reason.",
+      "matchDatasources": [
+        "apk",
+        "artifactory",
+        "aws-machine-image",
+        "bitbucket-tags",
+        "bitrise",
+        "buildpacks-registry",
+        "conda",
+        "cpan",
+        "crate",
+        "dart",
+        "deno",
+        "devbox",
+        "dotnet-version",
+        "elm-package",
+        "endoflife-date",
+        "flutter-version",
+        "galaxy",
+        "galaxy-collection",
+        "github-digest",
+        "github-releases",
+        "github-runners",
+        "github-tags",
+        "gitlab-packages",
+        "gitlab-releases",
+        "gitlab-tags",
+        "go",
+        "golang-version",
+        "gradle-version",
+        "helm",
+        "hex",
+        "hexpm-bob",
+        "jenkins-plugins",
+        "jsr",
+        "julia-general-metadata",
+        "maven",
+        "node-version",
+        "npm",
+        "nuget",
+        "orb",
+        "packagist",
+        "puppet-forge",
+        "pypi",
+        "ruby-version",
+        "rubygems",
+        "rust-version",
+        "terraform-module",
+        "terraform-provider",
+        "unity3d"
+      ],
+      "minimumReleaseAge": "3 days"
+    },
     {
       "description": "Lock file maintenance has no release timestamp: the package manager picks the versions",
       "matchUpdateTypes": [
         "lockFileMaintenance"
       ],
-      "minimumReleaseAge": null
+      "minimumReleaseAge": null,
+      "prBodyNotes": [
+        "⚠️ Lock file maintenance does not check the 3-day minimum release age: the package manager picks the versions. Check that no version in this PR is younger than 3 days."
+      ]
     },
     {
       "description": "Replacements and pinning do not carry the release age (renovatebot/renovate#39400, #40288)",
@@ -17,7 +72,10 @@
         "replacement",
         "pin"
       ],
-      "minimumReleaseAge": null
+      "minimumReleaseAge": null,
+      "prBodyNotes": [
+        "⚠️ Renovate does not check the 3-day minimum release age for replacements and pinning. Check that no version in this PR is younger than 3 days."
+      ]
     },
     {
       "description": "bump, lockfileUpdate and rollback updates have no release timestamp",
@@ -26,7 +84,10 @@
         "lockfileUpdate",
         "rollback"
       ],
-      "minimumReleaseAge": null
+      "minimumReleaseAge": null,
+      "prBodyNotes": [
+        "⚠️ Renovate does not check the 3-day minimum release age for `bump`, `lockfileUpdate` and `rollback` updates. Check that no version in this PR is younger than 3 days."
+      ]
     }
   ]
 }
