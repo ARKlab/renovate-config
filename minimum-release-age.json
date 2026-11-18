@@ -79,7 +79,10 @@
         "digest",
         "pinDigest"
       ],
-      "minimumReleaseAgeBehaviour": "timestamp-optional"
+      "minimumReleaseAgeBehaviour": "timestamp-optional",
+      "prBodyNotes": [
+        "⚠️ Renovate checks the 3-day minimum release age of a digest only against the version it points to. A digest of a branch or a moved tag without a version is not checked: check that its commit is at least 3 days old."
+      ]
     },
     {
       "description": "Lock file maintenance has no release timestamp and the package manager picks the versions. Only npm, cargo and poetry enforce the age themselves, so the other managers skip it",
