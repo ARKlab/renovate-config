@@ -1,11 +1,14 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Wait until a release is 3 days old before raising its update. Malware scanners and registries get time to find and pull a bad release, and Renovate creates no branch and runs no package manager on it before then (internalChecksFilter defaults to strict). Security updates skip the wait: vulnerabilityAlerts sets minimumReleaseAge to null. npm (npm, pnpm, yarn) and cargo also get the age passed to the package manager, so lock file maintenance and indirect dependencies wait 3 days too (minimumReleaseAgePackageManagerSync, experimental in Renovate 44; older npm, pnpm and yarn versions leave lock file maintenance pending).",
+  "description": "Wait until a release is 3 days old before raising its update. Malware scanners and registries get time to find and pull a bad release, and Renovate creates no branch and runs no package manager on it before then (internalChecksFilter defaults to strict). Security updates skip the wait: vulnerabilityAlerts sets minimumReleaseAge to null. npm (npm, pnpm, yarn), cargo and poetry also get the age passed to the package manager, so lock file maintenance and indirect dependencies wait 3 days too (minimumReleaseAgePackageManagerSync, experimental in Renovate 44; older npm, pnpm and yarn versions leave lock file maintenance pending).",
   "minimumReleaseAge": "3 days",
   "npm": {
     "minimumReleaseAgePackageManagerSync": true
   },
   "cargo": {
+    "minimumReleaseAgePackageManagerSync": true
+  },
+  "poetry": {
     "minimumReleaseAgePackageManagerSync": true
   },
   "packageRules": [
@@ -79,10 +82,11 @@
       "minimumReleaseAgeBehaviour": "timestamp-optional"
     },
     {
-      "description": "Lock file maintenance has no release timestamp and the package manager picks the versions. Only npm and cargo enforce the age themselves, so the other managers skip it",
+      "description": "Lock file maintenance has no release timestamp and the package manager picks the versions. Only npm, cargo and poetry enforce the age themselves, so the other managers skip it",
       "matchManagers": [
         "!npm",
-        "!cargo"
+        "!cargo",
+        "!poetry"
       ],
       "matchUpdateTypes": [
         "lockFileMaintenance"
@@ -93,10 +97,11 @@
       ]
     },
     {
-      "description": "npm and cargo lock file maintenance keeps the 3 days and hands them to the package manager (minimumReleaseAgePackageManagerSync). It has no release timestamp, so timestamp-optional keeps it from staying pending where the package manager cannot enforce the age",
+      "description": "npm, cargo and poetry lock file maintenance keeps the 3 days and hands them to the package manager (minimumReleaseAgePackageManagerSync). It has no release timestamp, so timestamp-optional keeps it from staying pending where the package manager cannot enforce the age",
       "matchManagers": [
         "npm",
-        "cargo"
+        "cargo",
+        "poetry"
       ],
       "matchUpdateTypes": [
         "lockFileMaintenance"
