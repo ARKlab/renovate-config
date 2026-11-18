@@ -78,6 +78,20 @@
       ]
     },
     {
+      "description": "npm and cargo lock file maintenance keeps the 3 days and hands them to the package manager (minimumReleaseAgePackageManagerSync). It has no release timestamp, so timestamp-optional keeps it from staying pending where the package manager cannot enforce the age (yarn 1, older pnpm, two lock files)",
+      "matchManagers": [
+        "npm",
+        "cargo"
+      ],
+      "matchUpdateTypes": [
+        "lockFileMaintenance"
+      ],
+      "minimumReleaseAgeBehaviour": "timestamp-optional",
+      "prBodyNotes": [
+        "⚠️ Renovate passes the 3-day minimum release age to the package manager for lock file maintenance, but only recent versions enforce it (yarn 4.10 or later, pnpm 10.17 or later; yarn 1 and repositories with two lock files do not). With an older package manager, check that no version in this PR is younger than 3 days."
+      ]
+    },
+    {
       "description": "Replacements and pinning do not carry the release age (renovatebot/renovate#39400, #40288)",
       "matchUpdateTypes": [
         "replacement",
