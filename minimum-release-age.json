@@ -30,6 +30,7 @@
         "!flutter-version",
         "!galaxy",
         "!galaxy-collection",
+        "!gitea-tags",
         "!github-digest",
         "!github-releases",
         "!github-runners",
@@ -64,6 +65,14 @@
       "minimumReleaseAgeBehaviour": "timestamp-optional"
     },
     {
+      "description": "Digest updates never carry a release timestamp at branch time, so timestamp-required would leave their status check pending forever. The lookup still holds a digest until the version it points to is 3 days old",
+      "matchUpdateTypes": [
+        "digest",
+        "pinDigest"
+      ],
+      "minimumReleaseAgeBehaviour": "timestamp-optional"
+    },
+    {
       "description": "Lock file maintenance has no release timestamp and the package manager picks the versions. Only npm and cargo enforce the age themselves, so the other managers skip it",
       "matchManagers": [
         "!npm",
@@ -78,7 +87,7 @@
       ]
     },
     {
-      "description": "npm and cargo lock file maintenance keeps the 3 days and hands them to the package manager (minimumReleaseAgePackageManagerSync). It has no release timestamp, so timestamp-optional keeps it from staying pending where the package manager cannot enforce the age (yarn 1, older pnpm, two lock files)",
+      "description": "npm and cargo lock file maintenance keeps the 3 days and hands them to the package manager (minimumReleaseAgePackageManagerSync). It has no release timestamp, so timestamp-optional keeps it from staying pending where the package manager cannot enforce the age",
       "matchManagers": [
         "npm",
         "cargo"
@@ -88,7 +97,7 @@
       ],
       "minimumReleaseAgeBehaviour": "timestamp-optional",
       "prBodyNotes": [
-        "⚠️ Renovate passes the 3-day minimum release age to the package manager for lock file maintenance, but only recent versions enforce it (yarn 4.10 or later, pnpm 10.17 or later; yarn 1 and repositories with two lock files do not). With an older package manager, check that no version in this PR is younger than 3 days."
+        "⚠️ Renovate passes the 3-day minimum release age to the package manager for lock file maintenance, but not every package manager version or setup enforces it. Unless you know it does here, check that no version in this PR is younger than 3 days."
       ]
     },
     {
