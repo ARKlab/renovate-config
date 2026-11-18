@@ -1,6 +1,14 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Wait until a release is 3 days old before raising its update, for every datasource that reports release timestamps. Malware scanners and registries get time to find and pull a bad release, and Renovate creates no branch and runs no package manager on it before then (internalChecksFilter defaults to strict). Security updates skip the wait: vulnerabilityAlerts sets minimumReleaseAge to null.",
+  "description": "Wait until a release is 3 days old before raising its update, for every datasource that reports release timestamps. Malware scanners and registries get time to find and pull a bad release, and Renovate creates no branch and runs no package manager on it before then (internalChecksFilter defaults to strict). Security updates skip the wait: vulnerabilityAlerts sets minimumReleaseAge to null. npm (npm, pnpm, yarn) and cargo also get the age passed to the package manager, so lock file maintenance and transitive dependencies wait 3 days too (minimumReleaseAgePackageManagerSync, experimental in Renovate 44; older npm, pnpm and yarn versions leave lock file maintenance pending).",
+  "npm": {
+    "minimumReleaseAge": "3 days",
+    "minimumReleaseAgePackageManagerSync": true
+  },
+  "cargo": {
+    "minimumReleaseAge": "3 days",
+    "minimumReleaseAgePackageManagerSync": true
+  },
   "packageRules": [
     {
       "description": "Datasources with release timestamps (releaseTimestampSupport in Renovate 44). docker is left out: it has timestamps only on Docker Hub, and the default minimumReleaseAgeBehaviour (timestamp-required) would hold images from mcr.microsoft.com, ghcr.io or ACR forever. Datasources without timestamps (git-tags, git-refs, azure-pipelines-tasks, azure-bicep-resource, ...) are left out for the same reason.",
@@ -57,7 +65,11 @@
       "minimumReleaseAge": "3 days"
     },
     {
-      "description": "Lock file maintenance has no release timestamp: the package manager picks the versions",
+      "description": "Lock file maintenance has no release timestamp and the package manager picks the versions. Only npm and cargo enforce the age themselves, so the other managers skip it",
+      "matchManagers": [
+        "!npm",
+        "!cargo"
+      ],
       "matchUpdateTypes": [
         "lockFileMaintenance"
       ],
