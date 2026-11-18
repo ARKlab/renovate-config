@@ -35,16 +35,6 @@
       "matchSourceUrls": [
         "https://github.com/dotnet/aspnet-api-versioning"
       ]
-    },
-    {
-      "groupName": "apm CLI",
-      "description": "apm CLI group: the version in constraints.apm, the CLI pins in workflows and the apm_version of apm.lock.yaml must move together, in one PR",
-      "matchDatasources": [
-        "github-releases"
-      ],
-      "matchPackageNames": [
-        "microsoft/apm"
-      ]
     }
   ]
 }
