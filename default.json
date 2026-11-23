@@ -43,6 +43,7 @@
   "packageRules": [
     {
       "groupName": "apm CLI",
+      "groupSlug": "apm-cli",
       "description": "apm CLI group, after group:allNonMajor so it also wins for minor and patch (0.x) updates: the version in constraints.apm, the CLI pins in workflows and the apm_version of apm.lock.yaml move together, in their own PR",
       "matchDatasources": [
         "github-releases"
