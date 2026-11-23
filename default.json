@@ -54,6 +54,7 @@
     },
     {
       "groupName": "uv",
+      "groupSlug": "uv",
       "description": "uv group, after group:allNonMajor so it also wins for minor, patch and major updates: the uv pins in workflows (setup-uv, GitHub releases astral-sh/uv) and in pyproject.toml (PyPI uv, e.g. [tool.uv] required-version) move together, in their own PR, so uv never refuses to run on a half-bumped branch",
       "matchDatasources": [
         "github-releases",
