@@ -82,6 +82,19 @@
       "matchPackageNames": ["MailKit", "MimeKit"],
       "matchDatasources": ["nuget"],
       "allowedVersions": "<5.0.0"
+    },
+    {
+      "description": "APM deploys these folders from apm.lock.yaml: an edit here is drift that apm audit --ci rejects, e.g. the global.json shipped inside a dotnet/skills plugin. Update the APM package instead.",
+      "matchFileNames": [
+        ".agents/**",
+        ".claude/**",
+        ".github/agents/**",
+        ".github/hooks/**",
+        ".github/instructions/**",
+        ".github/prompts/**",
+        ".github/skills/**"
+      ],
+      "enabled": false
     }
   ]
 }
