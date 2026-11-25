@@ -30,6 +30,12 @@
       "matchSourceUrls": ["https://github.com/domaindrivendev/Swashbuckle.AspNetCore"],
       "matchDatasources": ["nuget"],
       "allowedVersions": "<11.0.0"
+    },
+    {
+      "description": "Swashbuckle.AspNetCore.Filters 11 needs Swashbuckle.AspNetCore 11, which is capped above. It has its own source repository, so the rule above does not match it. Remove together with that cap: https://github.com/ARKlab/renovate-config/issues/9",
+      "matchPackageNames": ["Swashbuckle.AspNetCore.Filters", "Swashbuckle.AspNetCore.Filters.Abstractions"],
+      "matchDatasources": ["nuget"],
+      "allowedVersions": "<11.0.0"
     }
   ]
 }
